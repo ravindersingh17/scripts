@@ -1,0 +1,13 @@
+import os
+import fnmatch
+import subprocess 
+ytdata = [
+        {"url":"https://m.youtube.com/playlist?list=PLTwtP_nl_Xt0vRN2i7Sm9dsNxwq8Ddmjj",
+            "dir":"/cygdrive/c/Users/ravinder/Music/Casual"}
+        ]
+
+youtube_dl="/cygdrive/c/Users/ravinder/Downloads/Software/youtube-dl/youtube-dl.exe"
+for store in ytdata:
+    os.chdir(store["dir"])
+    nfiles = len(list(filter(lambda x: fnmatch.fnmatch(x, "*.mp3"), os.listdir())))
+    subprocess.call("{} --extract-audio --audio-format mp3 --playlist-start {} {}".format(youtube_dl, nfiles+3, store["url"]), shell=True)
