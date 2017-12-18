@@ -2,11 +2,11 @@ import os
 import fnmatch
 import subprocess 
 ytdata = [
-        {"url":"https://m.youtube.com/playlist?list=PLTwtP_nl_Xt0vRN2i7Sm9dsNxwq8Ddmjj",
-            "dir":"/cygdrive/c/Users/ravinder/Music/Casual"}
+        {"url":"",
+            "dir":""}
         ]
 
-youtube_dl="/cygdrive/c/Users/ravinder/Downloads/Software/youtube-dl/youtube-dl.exe"
+youtube_dl=":
 for store in ytdata:
     os.chdir(store["dir"])
     nfiles = len(list(filter(lambda x: fnmatch.fnmatch(x, "*.mp3"), os.listdir())))
