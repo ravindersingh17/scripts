@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/usr/bin/env bash
 for i in $(find $2); do
     if [ -f $i ]; then
         grep $1 $i
