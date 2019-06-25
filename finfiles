@@ -1,9 +1,14 @@
 #!/usr/bin/env bash
-for i in $(find $2); do
-    if [ -f $i ]; then
-        grep $1 $i
-        if [ $? -eq 0 ]; then
-            echo $i
-        fi
-    fi
-done
+if [ $3x == x ]; then
+	for i in $(find $2); do
+	    if [ -f $i ]; then
+		grep -I -n -H $1 $i
+	    fi
+	done
+else
+	for i in $(find $2 | grep $3); do
+	    if [ -f $i ]; then
+		grep -I -n -H $1 $i
+	    fi
+	done
+fi
